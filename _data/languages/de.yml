@@ -52,7 +52,7 @@ counter:
     one: Insgesamt ein Tag
     other: "Insgesamt %d Tags"
 
-  categories:
+  category_cloud:
     zero: Keine Kategorien
     one: Insgesamt eine Kategorie
     other: "Insgesamt %d Kategorien"

@@ -49,7 +49,7 @@ counter:
     one: 1 total tag
     other: "%d total tags"
 
-  categories:
+  category_cloud:
     zero: Tidak ada kategori
     one: 1 total categori
     other: "%d total kategori"

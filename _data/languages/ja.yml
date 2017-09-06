@@ -50,7 +50,7 @@ counter:
     one: "全 1 タグ"
     other: "全 %d タグ"
 
-  categories:
+  category_cloud:
     zero: カテゴリなし
     one: "全 1 カテゴリ"
     other: "全 %d カテゴリ"

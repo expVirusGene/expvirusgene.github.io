@@ -54,7 +54,7 @@ counter:
     one: 目前共計 1 個標籤
     other: "目前共計 %d 個標籤"
 
-  categories:
+  category_cloud:
     zero: 暫無分類
     one: 目前共計 1 個分類
     other: "目前共計 %d 個分類"

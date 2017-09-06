@@ -57,7 +57,7 @@ counter:
     one: 1개의 태그
     other: "총 %d개의 태그"
 
-  categories:
+  category_cloud:
     zero: 카테고리 없음
     one: 1개의 카테고리
     other: "총 %d개의 카테고리"

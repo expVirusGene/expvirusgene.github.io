@@ -57,7 +57,7 @@ counter:
     four: "%d тэга всего."
     other: "%d тэгов всего."
 
-  categories:
+  category_cloud:
     zero: Нет категорий.
     one: 1 категория.
     two: "%d категории всего."
