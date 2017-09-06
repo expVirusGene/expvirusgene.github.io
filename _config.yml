@@ -739,10 +739,25 @@ version: 5.1.1
 code_highlighter_style:
   enable: true
   styles:
-    C#: 
-      background: honeydew
-      color: black
     javascript:
-      background: red
+      background: gold
       color: white
-  
+    bash:
+      background: white
+      color: black
+    ruby:
+      background: crimson
+      color: snow
+    python:
+      background: blue
+      color: yellow
+    C#: 
+      background: mediumslateblue
+      color: snow
+    c++:
+      background: mediumslateblue
+      color: snow
+    c:
+      background: mediumslateblue
+      color: snow
+    
