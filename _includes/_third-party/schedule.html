@@ -3,8 +3,8 @@
 
 <script>
 
-// Initialization
-var _n = function(arg) { if(arg) return arg; else return void 0;}
+/*Initialization*/
+var _n = function(arg) { if(arg) return arg; else return void 0;};
 
 var cal_data = void 0;
 
@@ -12,7 +12,7 @@ var now = new Date();
 var timeMax = new Date();
 var timeMin = new Date();
 
-// Read config form theme config file
+/*Read config form theme config file*/
 var calId           = _n('{{ site.calendar.calendar_id  }}')                ;
 var apiKey          = _n('{{ site.calendar.api_key      }}')                ;
 var orderBy         = _n('{{ site.calendar.ordarBy      }}')  || 'startTime';
@@ -27,7 +27,7 @@ var maxResults      = _n( {{ site.calendar.maxResults   }} )  || '250'      ;
 timeMax.setHours(now.getHours() + offsetMax);
 timeMin.setHours(now.getHours() - offsetMin);
 
-// Build URL
+/*Build URL*/
 BASE_URL            = 'https://www.googleapis.com/calendar/v3/calendars/';
 FIELD_KEY           = 'key';
 FIELD_ORDERBY       = 'orderBy';
@@ -65,17 +65,17 @@ function fetchData() {
 
       $eventList = $('#schedule #event-list');
 
-      // clean the event list
+      /*clean the event list*/
       $eventList.html("");
-      var prevEnd = 0; // used to decide where to insert an <hr>
+      var prevEnd = 0;  /*used to decide where to insert an <hr>*/
 
       data['items'].forEach((event) => {
 
-        // parse data
+        /*parse data*/
         var start = new Date(event.start.dateTime);
         var end   = new Date(event.end.dateTime);
 
-        tense = judgeTense(now, start, end); // 0:now 1:future -1:past
+        tense = judgeTense(now, start, end);  /*0:now 1:future -1:past*/
 
         if (tense == 1 && prevEnd < now) $eventList.append('<hr>');
 
@@ -128,13 +128,13 @@ function buildEventDOM(tense, event) {
   var start      = new Date(event.start.dateTime);
   var end        = new Date(event.end.dateTime);
   switch(tense) {
-    case 0 : // now
+    case 0 : /*now*/
       tenseClass = "event-now";
       break;
-    case 1 : // future
+    case 1 : /*future*/
       tenseClass = "event-future";
       break;
-    case -1: // past
+    case -1: /*past*/
       tenseClass = "event-past";
       break;
     default:

@@ -1,9 +1,9 @@
 {% if site.local_search.enable %}
   <script type="text/javascript">
-    // Popup Window;
+    /*Popup Window;*/
     var isfetched = false;
     var isXml = true;
-    // Search DB path;
+    /*Search DB path;*/
     var search_path = "{{ site.search.path }}";
     if (search_path.length === 0) {
       search_path = "search.xml";
@@ -11,7 +11,7 @@
       isXml = false;
     }
     var path = "{{ site.baseurl }}/" + search_path;
-    // monitor main search box;
+    /*monitor main search box;*/
 
     var onPopupClose = function (e) {
       $('.popup').hide();
@@ -20,12 +20,10 @@
       $('#no-result').remove();
       $(".local-search-pop-overlay").remove();
       $('body').css('overflow', '');
-    }
+    };
 
     function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
+      $("body").append('<div class="search-popup-overlay local-search-pop-overlay"></div>').css('overflow', 'hidden');
       $('.search-popup-overlay').click(onPopupClose);
       $('.popup').toggle();
       var $localSearchInput = $('#local-search-input');
@@ -34,11 +32,11 @@
       $localSearchInput.focus();
     }
 
-    // search function;
+    /*search function;*/
     var searchFunc = function(path, search_id, content_id) {
       'use strict';
 
-      // start loading animation
+      /*start loading animation*/
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
@@ -53,7 +51,7 @@
         dataType: isXml ? "xml" : "json",
         async: true,
         success: function(res) {
-          // get the contents from search data
+          /*get the contents from search data*/
           isfetched = true;
           $('.popup').detach().appendTo('.header-inner');
           var datas = isXml ? $("entry", res).map(function() {
@@ -73,7 +71,7 @@
             }
             var resultItems = [];
             if (searchText.length > 0) {
-              // perform local searching
+              /*perform local searching*/
               datas.forEach(function(data) {
                 var isMatch = false;
                 var hitCount = 0;
@@ -85,7 +83,7 @@
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
                 var indexOfContent = [];
-                // only match articles with not empty titles
+                /*only match articles with not empty titles*/
                 if(title != '') {
                   keywords.forEach(function(keyword) {
                     function getIndexByWord(word, text, caseSensitive) {
@@ -114,10 +112,10 @@
                   }
                 }
 
-                // show search results
+                /*show search results*/
 
                 if (isMatch) {
-                  // sort index by position of keyword
+                  /*sort index by position of keyword*/
 
                   [indexOfTitle, indexOfContent].forEach(function (index) {
                     index.sort(function (itemLeft, itemRight) {
@@ -129,7 +127,7 @@
                     });
                   });
 
-                  // merge hits into slices
+                  /*merge hits into slices*/
 
                   function mergeIntoSlice(text, start, end, index) {
                     var item = index[index.length - 1];
@@ -144,7 +142,7 @@
                       hits.push({position: position, length: word.length});
                       var wordEnd = position + word.length;
 
-                      // move to next position of hit
+                      /*move to next position of hit*/
 
                       index.pop();
                       while (index.length != 0) {
@@ -177,7 +175,7 @@
                     var item = indexOfContent[indexOfContent.length - 1];
                     var position = item.position;
                     var word = item.word;
-                    // cut out 100 characters
+                    /*cut out 100 characters*/
                     var start = position - 20;
                     var end = position + 80;
                     if(start < 0){
@@ -192,7 +190,7 @@
                     slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
                   }
 
-                  // sort slices in content by search text's count and hits' count
+                  /*sort slices in content by search text's count and hits' count*/
 
                   slicesOfContent.sort(function (sliceLeft, sliceRight) {
                     if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
@@ -204,14 +202,14 @@
                     }
                   });
 
-                  // select top N slices in content
+                  /*select top N slices in content*/
 
                   var upperBound = parseInt('{{ site.local_search.top_n_per_article }}');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }
 
-                  // highlight title and content
+                  /*highlight title and content*/
 
                   function highlightKeyword(text, slice) {
                     var result = '';
@@ -250,6 +248,7 @@
                 }
               })
             };
+            
             if (keywords.length === 1 && keywords[0] === "") {
               resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
             } else if (resultItems.length === 0) {
@@ -267,11 +266,11 @@
               var searchResultList = '<ul class=\"search-result-list\">';
               resultItems.forEach(function (result) {
                 searchResultList += result.item;
-              })
+              });
               searchResultList += "</ul>";
               resultContent.innerHTML = searchResultList;
             }
-          }
+          };
 
           if ('auto' === '{{ site.local_search.trigger }}') {
             input.addEventListener('input', inputEventFunction);
@@ -284,17 +283,18 @@
             });
           }
 
-          // remove loading animation
+          /*remove loading animation*/
           $(".local-search-pop-overlay").remove();
           $('body').css('overflow', '');
 
           proceedsearch();
         }
       });
-    }
+    };
 
-    // handle and trigger popup window;
+    /*handle and trigger popup window;*/
     $('.popup-trigger').click(function(e) {
+      console.log("!");
       e.stopPropagation();
       if (isfetched === false) {
         searchFunc(path, 'local-search-input', 'local-search-result');

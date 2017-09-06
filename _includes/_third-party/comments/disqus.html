@@ -9,32 +9,32 @@
       {% if site.disqus.hide %}
       <script type="text/javascript">
           (function () {
-              // ECMSScript 5 Strict Mode
+              /*ECMSScript 5 Strict Mode*/
               'use strict';
 
-              // Global object
+              /*Global object*/
               var App = {};
 
-              // Create button
+              /*Create button*/
               App.commentsButton = document.createElement('button');
               App.commentsButton.setAttribute('class', 'comments-button');
               App.commentsButton.setAttribute('data-js', 'comments-button');
               App.commentsButton.innerHTML = 'Show Comments';
 
-              // Append button to body
+              /*Append button to body*/
               parent.document.getElementById("post-nav-id").firstElementChild.appendChild(App.commentsButton);
 
-              // Click event handler
+              /*Click event handler*/
               App.commentsButton.onclick = function () {
 
-                  // Remove button on click
+                  /*Remove button on click*/
                   this.parentNode.removeChild(this);
 
-                  // Create comments container
+                  /*Create comments container*/
                   App.disqusContainer = document.createElement('div');
                   App.disqusContainer.setAttribute('id', 'disqus_thread');
 
-                  // Append container to body
+                  /*Append container to body*/
                   document.body.appendChild( App.disqusContainer );
 
                   var disqus_config = function () {

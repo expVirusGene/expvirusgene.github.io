@@ -43,7 +43,7 @@
 
   ScrollSpy.prototype.getScrollHeight = function () {
     return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
-  }
+  };
 
   ScrollSpy.prototype.refresh = function () {
     var that          = this
@@ -76,9 +76,7 @@
         that.offsets.push(this[0])
         that.targets.push(this[1])
       })
-
-
-  }
+  };
 
   ScrollSpy.prototype.process = function () {
     var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
@@ -109,7 +107,7 @@
         && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
         && this.activate(targets[i])
     }
-  }
+  };
 
   ScrollSpy.prototype.activate = function (target) {
     this.activeTarget = target
@@ -131,13 +129,13 @@
     }
 
     active.trigger('activate.bs.scrollspy')
-  }
+  };
 
   ScrollSpy.prototype.clear = function () {
     $(this.selector)
       .parentsUntil(this.options.target, '.active')
       .removeClass('active')
-  }
+  };
 
 
   // SCROLLSPY PLUGIN DEFINITION
@@ -166,7 +164,7 @@
   $.fn.scrollspy.noConflict = function () {
     $.fn.scrollspy = old
     return this
-  }
+  };
 
 
   // SCROLLSPY DATA-API

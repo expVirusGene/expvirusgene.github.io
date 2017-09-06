@@ -5,7 +5,7 @@
   <script type="text/javascript" src="{{ site.js | relative_url }}/src/paginator.js"></script>
   <script>
     (function() {
-      // Url route
+      /*Url route*/
       var hash = window.location.hash.substring(1);
       $(window).on('hashchange', function() {
         location.reload();
@@ -17,7 +17,7 @@
       $('[route][route!="' + hash + '"]').remove();
       $('#posts').show();
 
-      // Pagination
+      /*Pagination*/
       {% if page.layout == 'category' %}
         {% assign collections = site.categories %}
         {% assign redirect = '/categories/' | relative_url %}

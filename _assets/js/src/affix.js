@@ -26,7 +26,7 @@
     this.pinnedOffset = null
 
     this.checkPosition()
-  }
+  };
 
   Affix.VERSION  = '3.3.5'
 
@@ -57,7 +57,7 @@
     if (offsetBottom != null && (colliderTop + colliderHeight >= scrollHeight - offsetBottom)) return 'bottom'
 
     return false
-  }
+  };
 
   Affix.prototype.getPinnedOffset = function () {
     if (this.pinnedOffset) return this.pinnedOffset
@@ -65,11 +65,11 @@
     var scrollTop = this.$target.scrollTop()
     var position  = this.$element.offset()
     return (this.pinnedOffset = position.top - scrollTop)
-  }
+  };
 
   Affix.prototype.checkPositionWithEventLoop = function () {
     setTimeout($.proxy(this.checkPosition, this), 1)
-  }
+  };
 
   Affix.prototype.checkPosition = function () {
     if (!this.$element.is(':visible')) return
@@ -110,7 +110,7 @@
         top: scrollHeight - height - offsetBottom
       })
     }
-  }
+  };
 
 
   // AFFIX PLUGIN DEFINITION
@@ -139,7 +139,7 @@
   $.fn.affix.noConflict = function () {
     $.fn.affix = old
     return this
-  }
+  };
 
 
   // AFFIX DATA-API
