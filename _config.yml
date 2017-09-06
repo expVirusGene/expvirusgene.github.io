@@ -54,7 +54,7 @@ sass:
   
 compress_html:
   clippings: all
-  comments: ["<!-- ", " -->"]
+  comments: all
   endings: all
   blanklines: false
   profile: false
