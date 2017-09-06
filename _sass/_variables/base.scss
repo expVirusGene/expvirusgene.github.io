@@ -99,8 +99,8 @@ $font-size-larger         : $font-size-base + 4px;
 
 
 // Headings font size
-$font-size-headings-step    : 2px;
-$font-size-headings-base    : 24px;
+$font-size-headings-step    : 8px;
+$font-size-headings-base    : 40px;
 $font-size-headings-small   : $font-size-headings-base - $font-size-headings-step;
 $font-size-headings-smaller : $font-size-headings-small - $font-size-headings-step;
 $font-size-headings-large   : $font-size-headings-base + $font-size-headings-step;
@@ -110,7 +110,8 @@ $font-size-headings-larger  : $font-size-headings-large + $font-size-headings-st
 $line-height-base           : 2;
 $line-height-code-block     : 1.6;  // Can't be less than 1.3
 
-
+// Resize font size to mobile
+$font-size-resize-mobile : 4px;
 
 // Z-index master list
 // --------------------------------------------------

@@ -1,11 +1,15 @@
 .posts-expand .post-title {
-  font-size: 26px;
+  font-size: $font-size-headings-base;
   text-align: center;
   word-break: break-word;
   font-weight: $posts-expand-title-font-weight;
 
+  @include tablet() {
+    font-size: $font-size-headings-base - $font-size-resize-mobile;
+  }
+  
   @include mobile() {
-    font-size: 22px;
+    font-size: $font-size-headings-base - $font-size-resize-mobile * 2;
   }
 }
 .posts-expand .post-title-link {
