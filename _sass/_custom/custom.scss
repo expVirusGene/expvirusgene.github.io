@@ -1,0 +1,24 @@
+// Custom styles.
+
+// AddThis custom style.
+.addthis-smartlayers {  
+  a {
+    border: 0;
+  }
+  
+  @include tablet() {
+    opacity: 0.5;
+    
+    &:hover, &:active, &:focus {
+      opacity: 1;
+    }
+  }
+  
+  @include mobile() {
+    opacity: 0.5;
+    
+    &:hover, &:active, &:focus {
+      opacity: 1;
+    }
+  }
+}

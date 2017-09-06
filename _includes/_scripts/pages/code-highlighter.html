@@ -1,0 +1,74 @@
+{% if site.code_highlighter_style.enable %}
+<script type="text/javascript">
+    "use strict";
+    
+    var __styles__ = Liquid.parse('{{ site.code_highlighter_style.styles }}');
+    
+    var getCodeHighlighter = function() {
+        var __retCode__ = [];
+        
+        $("div[itemprop='articleBody'] figure.highlight code").each(function() {
+            var __dataLang__ = $(this).data("lang");
+            if (typeof __dataLang__ != 'undefined' && __dataLang__.length > 0) {
+                __retCode__.push($(this));
+            }
+        });
+        
+        $("div[itemprop='articleBody'] div.highlighter-rouge").each(function() {
+            var __classNames__ = $(this).prop("class").split(" ");
+            if (typeof __classNames__ != 'undefined' && __classNames__.length > 1) {
+                var __lang__ = __classNames__[0].substr("language-".length);
+                if (typeof __lang__ != 'undefined' && __lang__.length > 0) {
+                    var __code__ = $(this).find("code");
+                    if (__code__.length > 0) {
+                        $(__code__).addClass("language-" + __lang__);
+                        $(__code__).attr("data-lang", __lang__);
+                        __retCode__.push(__code__);
+                    }
+                }
+            }
+        });
+        
+        return __retCode__;
+    };
+    
+    var setStyleCodeHighligher = function(__targets__) {
+        var __checkLangList__ = [];
+        var __applyLangList__ = [];
+        
+        $(__targets__).each(function() {
+            var __lang__ = $(this).data("lang").toLowerCase();
+            if ($.inArray(__lang__, __checkLangList__) < 0) {
+                __checkLangList__.push(__lang__);
+                if (typeof __styles__[__lang__] != 'undefined') {
+                    $("<style>" + "." + $.escapeSelector($(this).prop("class")) + ":before"
+                        + "{"
+                            + "background:" + __styles__[__lang__].background + ";"
+                            + "color:" + __styles__[__lang__].color + ";"
+                        + "}"
+                    + "</style>").appendTo("head");
+                    __applyLangList__.push(__lang__);
+                }
+            }
+        });
+        
+        return {
+          checkLangList: __checkLangList__,
+          applyLangList: __applyLangList__
+        };
+    };
+        
+    $(document).ready(function() {
+        var __result__ = setStyleCodeHighligher(getCodeHighlighter());
+        var __checkInfoStr__ = "";
+        var __applyInfoStr__ = "";
+        __result__.checkLangList.forEach(function(item, idx, array) {
+            __checkInfoStr__ += item + (idx === array.length - 1 ? "" : ", ");
+        });
+        __result__.applyLangList.forEach(function(item, idx, array) {
+            __applyInfoStr__ += item + (idx === array.length - 1 ? "" : ", ");
+        });
+        console.info("code.highlighter style, check['" + __checkInfoStr__ + "'] and apply['" + __applyInfoStr__ + "']");
+    });
+</script>
+{% endif %}

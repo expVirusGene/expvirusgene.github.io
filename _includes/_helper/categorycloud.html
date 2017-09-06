@@ -1,0 +1,58 @@
+{% comment %} categorycloud(min_font, max_font, amount, color, start_color, end_color) {% endcomment %}
+{% capture categorycloud %}
+  {% assign categories = site.categories %}
+  {% assign max = max_font %}
+  {% assign min = min_font %}
+  {% assign sizes = '' | split: '' %}
+  {% assign unit = 'px' %}
+  {% assign start_color = start_color | split: ',' %}
+  {% assign end_color = end_color | split: ',' %}
+
+  {% for category in categories %}
+    {% if forloop.index > amount %}
+      {% break %}
+    {% endif %}
+    {% assign sizes = sizes | push: category[1].size %}
+  {% endfor %}
+
+  {% assign sizes = sizes | uniq | sort %}
+  {% assign length = sizes.size | minus: 1 %}
+
+  {% for category in categories %}
+    {% if forloop.index > amount %}
+      {% break %}
+    {% endif %}
+
+    {% assign ratio = 0 %}
+
+    {% if length > 0 %}
+      {% for size in sizes %}
+        {% if size == category[1].size %}
+          {% assign ratio = forloop.index0 | times: 1.0 | divided_by: length %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% assign tmp = max | minus: min | times: ratio %}
+    {% assign size = tmp | plus: min %}
+    {% assign tmp = size | round: 2 %}
+
+    {% assign style = 'font-size: ' | append: tmp | append: unit | append: ';' %}
+
+    {% if color %}
+      {% assign mid_color = '' | split: '' %}
+      {% for i in (0..2) %}
+        {% assign tmp = end_color[i] | minus: start_color[i] | times: ratio %}
+        {% assign tmp = start_color[i] | plus: tmp | round %}
+        {% assign mid_color = mid_color | push: tmp %}
+      {% endfor %}
+      {% assign mid_color = 'rgb(' | append: mid_color[0] | append: ',' | append: mid_color[1] | append: ',' | append: mid_color[2] | append: ')' %}
+      {% assign style = style | append: 'color: ' | append: mid_color %}
+    {% endif %}
+    {% assign category_url_encode = category[0] | url_encode | replace: '+', '%20' %}
+    <a href="{{ '/category/#/' | relative_url | append: category_url_encode }}" style="{{ style }}">{{ category[0] }}</a>
+  {% endfor %}
+
+{% endcapture %}
+{% assign categorycloud = categorycloud | normalize_whitespace %}
