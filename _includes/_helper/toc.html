@@ -55,8 +55,11 @@
           {% if list_number %}
             {% assign tmp = num_array | slice: first_level, 7 %}
             {% capture number %}{% for i in tmp %}.{{i}}{% endfor %}{% endcapture %}
-            {% assign number = number | strip | remove_first: '.' %}
+            {% assign number = number | strip | remove_first: '.' | append: '.' %}
             <span class="{{ class }}-number">{{ number }}</span>
+          {% endif %}
+          {% if title contains number %}
+            {% assign title = title | remove_first: number %}
           {% endif %}
           <span class="{{ class }}-text">{{ title }}</span>
         </a>
@@ -89,10 +92,19 @@
     {% for tag in tags %}
       {% assign tmp = tag | split: tag_end %}
       {% assign str = tmp[1] | strip %}
-
+      
       {% assign tmp = tmp[0] | strip | split: '>' %}
-      {% assign title = tmp[1] %}
-
+      
+      {% if tmp[1] contains '<a' %}
+        {% assign nTmp = tmp[1] | strip | split: '<a' %}
+        {% assign title = nTmp[0] %}
+        {% assign nTmp = tmp[2] | strip | split: '</a' %}
+        {% assign title = title | append: nTmp[0] %}
+        {% assign title = title | append: tmp[3] %}
+      {% else %}
+        {% assign title = tmp[1] %}  
+      {% endif %}
+      
       {% assign tmp = tmp[0] | strip | split: 'id=' %}
       {% assign id = tmp[1] | strip | replace: '"', '' %}
 
