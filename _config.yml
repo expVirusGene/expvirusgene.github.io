@@ -38,7 +38,7 @@ paginate_path: "/posts/pages/:num/"
 
 # Handling Reading
 include: ["_assets"]
-exclude: ["_exclude", ".bak", "Gemfile", "Gemfile.lock", "Rakefile", ".gem", ".gemspec", ".rvmrc", ".rbenv-version", "changelog.md", "README.cn.md", "README.en.md"]
+exclude: ["_exclude", ".bak", "Gemfile", "Gemfile.lock", "Rakefile", ".gem", ".gemspec", ".rvmrc", ".rbenv-version", "vendor", "changelog.md", "README.cn.md", "README.en.md"]
 
 # Separator
 #excerpt_separator: <!-- more -->
@@ -760,4 +760,3 @@ code_highlighter_style:
     c:
       background: mediumslateblue
       color: snow
-    
