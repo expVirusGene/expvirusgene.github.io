@@ -14,7 +14,7 @@ date_format: '%Y-%m-%d'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url:
+url: http://blog.expvirus.com/
 baseurl:
 # example: pretty
 permalink: /posts/:year/:month-:day-:title/ 
@@ -84,11 +84,11 @@ feed:
 ## Docs: https://help.github.com/articles/configuring-jekyll-plugins/
 plugins:
 # jemoji conficts with toc in some no-ascii post
-# - jekyll-seo-tag
+ - jekyll-seo-tag
  - jekyll-sitemap
-# - jekyll-redirect-from
+ #- jekyll-redirect-from
  - jekyll-feed
-# - jekyll-admin
+ #- jekyll-admin
  - jemoji
 
 # ---------------------------------------------------------------
@@ -131,7 +131,7 @@ copyright: true
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
-seo: false
+seo: true
 
 # If true, will add site-subtitle to index page, added in jekyll config.
 # subtitle: Subtitle
