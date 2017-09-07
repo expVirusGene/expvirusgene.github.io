@@ -4,7 +4,7 @@ Lazy Load delays loading of images in long web pages. Images outside of viewport
 
 Using Lazy Load on long web pages containing many large images makes the page load faster. Browser will be in ready state after loading visible images. In some cases it can also help to reduce server load.
 
-Lazy Load is inspired by [YUI ImageLoader](http://developer.yahoo.com/yui/imageloader/) Utility by Matt Mlinac.
+Lazy Load is inspired by [YUI ImageLoader](https://yuilibrary.com/yui/docs/imageloader/) Utility by Matt Mlinac.
 
 ## How to Use?
 

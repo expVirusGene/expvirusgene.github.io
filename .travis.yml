@@ -2,10 +2,12 @@ language: ruby
 
 rvm:
   - 2.1
-  
+
+# [htmlproofer option ref] (https://github.com/gjtorikian/html-proofer/blob/master/bin/htmlproofer)  
 script:
   - bundle exec jekyll build
-  - bundle exec htmlproofer ./_site --only-4xx --check-favicon --check-html
+  - bundle exec htmlproofer ./_site --only-4xx --allow-hash-href --assume-extension --external_only --check-html --report-missing-names
+  
 
 # 브랜치 화이트리스트. GitHub Pages 에서만 사용됨
 #branches:
