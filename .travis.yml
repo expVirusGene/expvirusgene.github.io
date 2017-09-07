@@ -1,0 +1,18 @@
+language: ruby
+
+rvm:
+  - 2.1
+  
+script:
+  - bundle exec jekyll build
+  - bundle exec htmlproofer ./_site --only-4xx --check-favicon --check-html
+
+# 브랜치 화이트리스트. GitHub Pages 에서만 사용됨
+#branches:
+#  only:
+#  - gh-pages     # gh-pages 브랜치를 테스트 함
+#  - /pages-(.*)/ # "pages-" 로 시작하는 모든 브랜치를 테스트 함
+
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer

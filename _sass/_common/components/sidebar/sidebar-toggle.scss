@@ -1,9 +1,9 @@
 .sidebar-toggle {
   position: fixed;
   right: $b2t-position-right;
-  bottom: 45px;
-  width: 14px;
-  height: 14px;
+  bottom: 56px;
+  width: 22px;
+  height: 22px;
   padding: 5px;
   background: $black-deep;
   line-height: 0;
@@ -13,7 +13,7 @@
 
   @include tablet() {
 //    display: none;
-    bottom: 36px;
+    bottom: 48px;
     right: 10px;
     opacity: 0.5;
     
@@ -23,7 +23,7 @@
   }
   @include mobile() {
 //    display: none;
-    bottom: 36px;
+    bottom: 48px;
     right: 10px;
     opacity: 0.5;
     
@@ -39,10 +39,10 @@
   position: relative;
   display: inline-block;
   vertical-align: top;
-  height: 2px;
+  height: 4px;
   width: 100%;
   background: white;
-  margin-top: 3px;
+  margin-top: 4px;
 
   &:first-child { margin-top: 0; }
 }

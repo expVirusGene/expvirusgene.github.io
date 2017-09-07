@@ -6,7 +6,7 @@
     right: $b2t-position-right;
     z-index: $zindex-5;
     padding: 0 6px;
-    width: if(jekyll-config('sidebar.scrollpercent'), initial, 24px);
+    width: if(jekyll-config('sidebar.scrollpercent'), initial, 32px);
     background: $b2t-bg-color;
     font-size: $b2t-font-size;
     opacity: $b2t-opacity;
