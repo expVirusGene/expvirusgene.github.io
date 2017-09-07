@@ -12,7 +12,7 @@ photos:
 - /_assets/images/post/2017/0907_travis-ci.png
 ---
 
-# Travis CI ?
+# 1. Travis CI ?
 
 Travis CI는 GitHub과 연동해 지속적 통합(Continuous Integration)을 호스팅해주는 서비스입니다.
 지속적 통합의 정확한 의미는 조금 더 넓을 수 있지만, Travis CI로 한정해서 쉽게 생각하자면, GitHub 저장소에 새로운 커밋이 push되었을 때 CI 서버가 뒤에서 자동으로 새로운 커밋을 가져와서 빌드 테스트를 수행하고, 그 결과를 리포팅 해주는 서비스입니다.
@@ -22,9 +22,9 @@ Travis CI는 GitHub과 연동해 지속적 통합(Continuous Integration)을 호
 이상의 언어를 포함해서 많은 종류의 데이터베이스, 즉 다양한 환경의 테스트를 수행할 수 있도록 지원해주고 있습니다.
 뿐만 아니라 지원하지 않는 영역에 대해서도 자유도를 폭넓게 제공하고 있어, 빌드 혹은 테스트 시에 라이브러리나 네이티브 모듈을 설치해서 테스트하는 것이 가능합니다.
 
-# Travis CI 시작하기
+# 2. Travis CI 시작하기
 
-## Github 가입 및 연동
+## 2.1 Github 가입 및 연동
 
 Travis CI는 Github와 연동해서 동작합니다. 따라서 Github 계정을 이용하여 회원가입을 할 수 있습니다.
 
@@ -36,7 +36,7 @@ Travis CI는 Github와 연동해서 동작합니다. 따라서 Github 계정을 
 단, 자신이 속한 그룹 (Organization) 의 저장소는 자동으로 처리되지 않는다고 합니다. 수동으로 훅을 설정해주어야 합니다. ([#242]{:target="_blank"}, [#325]{:target="_blank"} 참고)
 
 
-## 저장소 내 .travis.yml 작성
+## 2.2 저장소 내 .travis.yml 작성
 
 연동할 저장소 내에 .travis.yml 을 작성합니다.
 이 파일은 [YAML]{:target="_blank"} 파일로 Travis CI의 빌드 설정 및 테스트 환경 등에 대한 모든 설정을 기록하는 파일입니다. 
@@ -69,14 +69,14 @@ env:
 [Github Pages (with Jekyll)]{:target="_blank"}와 연동을 하기 위한 설정예시 입니다. 실제로 제가 사용하고 있는 설정입니다.
 [html-proofer]{:target="_blank"}[^2] 플러그인 등을 설정할 수 있습니다. html-proofer의 옵션은 [html-proofer option Ref.]{:target="_blank"} 이곳에서 확인할 수 있습니다.
 
-## Github 저장소 커밋 후 푸시
+## 2.3 Github 저장소 커밋 후 푸시
 
 푸시를 하시면 자동으로 Travis CI Queue에 추가 됩니다. 해당 언어에 대한 워커가 사용가능해지면 빌드를 시작하는 것죠.
 최초의 빌드는 반드시 푸시를 통해ㅐ서만 이루어지고 이후에는 푸시를 하거나 Github의 Test Hook[^3]으로 빌드를 실행할 수 있습니다.
 
-# 기타사항
+# 3. 기타사항
 
-## 빌드상태 이미지
+## 3.1 빌드상태 이미지
 
 Travis CI에서는 빌드 상태를 나타내는 이미지를 제공합니다.
 
