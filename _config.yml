@@ -8,6 +8,7 @@ title: EXPVirus
 subtitle:
 description: '오늘 남들이 안 하는 것을 하면, <br />내일 남들이 못 하는 것을 할 수 있다.'
 author: EXPVirusGene
+author_email: expVirus.gene@gmail.com
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: ko
 date_format: '%Y-%m-%d'
@@ -131,7 +132,8 @@ copyright: true
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
-seo: true
+seo: false
+signature: 
 
 # If true, will add site-subtitle to index page, added in jekyll config.
 # subtitle: Subtitle
@@ -242,6 +244,8 @@ social:
   #LinkLabel: Link
   GitHub: https://github.com/expVirusGene/
   Instagram: https://www.instagram.com/expvirusgene/
+  Facebook: https://www.facebook.com/expVirusGene/
+  Linked-In: https://www.linkedin.com/in/eugene-jeon-642868117/
 
 # Social Links Icons
 # Icon Mapping:
@@ -254,6 +258,8 @@ social_icons:
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   Instagram: instagram
+  Facebook: facebook-square
+  Linked-In: linkedin-square
   Twitter: twitter
   Weibo: weibo
 

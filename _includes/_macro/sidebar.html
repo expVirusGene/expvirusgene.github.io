@@ -37,11 +37,20 @@
                src="{% assign default_avatar = site.images | append: '/avatar.gif' %}{{ site.avatar | default: default_avatar | relative_url }}"
                alt="{{ site.author }}" />
           <p class="site-author-name" itemprop="name">{{ site.author }}</p>
-           {% if site.seo %}
-              <p class="site-description motion-element" itemprop="description">{{ site.signature }}</p>
-           {% else %}
-              <p class="site-description motion-element" itemprop="description">{{ site.description }}</p>
-          {% endif %}
+          <p class="site-description motion-element" itemprop="description">
+            {% if site.seo %}
+              {{ site.signature }}
+            {% else %}
+              {{ site.description }}
+            {% endif %}
+            {% if site.author_email %}
+              <br />
+              <a href="mailto:{{ site.author_email }}" target="_top"> <i class="fa fa-fw fa-envelope"></i> {{ site.author_email }} </a>
+              <button type="button" class="btn site-author-email" onclick="javascript: NexT.utils.copyTextToClipboard('{{ site.author_email }}');">
+                <i class="fa fa-fw fa-clipboard"></i>
+              </button>
+            {% endif %}
+          </p>
         </div>
         <nav class="site-state motion-element">
 

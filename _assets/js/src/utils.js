@@ -230,5 +230,23 @@ NexT.utils = NexT.$u = {
    */
   needAffix: function () {
     return this.isPisces();
+  },
+  
+  copyToClipboard: function(__element__) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(__element__).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+    return $(__element__).text();
+  },
+  
+  copyTextToClipboard: function(__text__) {
+     var $temp = $("<input>");
+     $("body").append($temp);
+     $temp.val(__text__).select();
+     document.execCommand("copy");
+     $temp.remove();
+    return __text__
   }
 };
