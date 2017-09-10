@@ -36,6 +36,10 @@ html, body { height: 100%; }
   @include desktop-large() {
     .container & { max-width: $content-desktop-large; }
   }
+  
+  @include mobile() {
+    padding: 0;
+  }
 }
 
 
