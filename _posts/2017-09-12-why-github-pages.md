@@ -1,7 +1,7 @@
 ---
 title: Why github pages?
 description: 왜 깃허브 페이지인가? 기술블로그를 운영하려는 당신에게...
-date: 2017-09-12 18:00:00
+date: 2017-09-12 14:00:00
 categories: Essay
 tags:
 - blog
