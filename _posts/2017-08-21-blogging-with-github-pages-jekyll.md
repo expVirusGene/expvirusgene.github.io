@@ -10,6 +10,8 @@ photos:
 - /_assets/images/post/2017/0821_blogging_01.png
 ---
 
+---
+
 # 1. Introduce; 소개
 ## 1.1. Jekyll ?
 [Jekyll]{:target="_blank"}은 [Markdown]{:target="_blank"}으로 작성된 문서를 [HTML]{:target="_blank"}로 변환, Web Page 를 쉽게 만들 수 있도록 돕는 Static Website Generator[^1]이며, [Ruby]{:target="_blank"}로 작성되어 있습니다.
