@@ -6,6 +6,8 @@ categories: Jekyll
 tags:
 - jekyll
 - gitHub pages
+photos:
+- /_assets/images/post/2017/0912_why-github-pages-01.png
 ---
 
 # 1. Introduce; 소개

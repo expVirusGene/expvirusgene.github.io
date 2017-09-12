@@ -9,10 +9,12 @@ tags:
 - gitHub pages
 - jekyll
 photos:
-- /_assets/images/post/2017/0907_travis-ci.png
+- /_assets/images/post/2017/0907_js-travis-ci-github-pages.png
 ---
 
 # 1. Travis CI ?
+
+![Travis CI](/_assets/images/post/2017/0907_travis-ci.png)
 
 Travis CI는 GitHub과 연동해 지속적 통합(Continuous Integration)을 호스팅해주는 서비스입니다.
 지속적 통합의 정확한 의미는 조금 더 넓을 수 있지만, Travis CI로 한정해서 쉽게 생각하자면, GitHub 저장소에 새로운 커밋이 push되었을 때 CI 서버가 뒤에서 자동으로 새로운 커밋을 가져와서 빌드 테스트를 수행하고, 그 결과를 리포팅 해주는 서비스입니다.
