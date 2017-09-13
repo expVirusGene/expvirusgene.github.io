@@ -9,4 +9,6 @@
   {% capture page_class %}page-archive{% endcapture %}
 {% when 'schedule' %}
   {% capture page_class %}page-post-detail page-calendar{% endcapture %}
+{% when 'gallery' %}
+  {% capture page_class %}page-post-detail page-gallery{% endcapture %}
 {% endcase %}

@@ -18,6 +18,10 @@
   {% capture script_extra %}
     {% include _scripts/pages/pagination.html %}
   {% endcapture %}
+{% when 'gallery' %}
+  {% capture script_extra %}
+    {% include _scripts/pages/gallery-get-photos.html %}
+  {% endcapture %}
 {% else %}
   {% capture script_extra %}{% include _scripts/pages/post-details.html %}{% endcapture %}
 {% endcase %}

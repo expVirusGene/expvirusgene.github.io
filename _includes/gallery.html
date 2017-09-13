@@ -1,0 +1,25 @@
+
+<hr/>
+
+<ul id="instagram-profile" {% if site.social.Instagram %} style="cursor: pointer;" onclick="window.open('{{ site.social.Instagram }}', '_blank');" {% endif %}>
+    <li>
+        <div class="instagram-profile-picture table-cell text-center">
+            <img id="user_profile_picture_img"/>
+            <div id="user_profile_picture_div"></div>
+        </div>
+        <div class="instagram-profile-info table-cell vertical-bottom">
+            <div id="user_name" class="text-left"></div>
+            <div class="text-center"><hr /></div>
+            <div id="user_bio" class="text-center"></div>
+            <div id="user_counts" class="text-right"></div>
+        </div>
+    </li>
+</ul>
+
+<hr/>
+
+<div id="gallery_contents_crawler_wrap">
+    <div id="gallery_contents_crawler"></div>    
+</div>
+
+<div id="gallery_contents"></div>

@@ -10,7 +10,8 @@
     -webkit-transform: translateZ(0);
     transition-property: bottom;
     @include the-transition();
-      &:hover { opacity: 0.8; }
+    
+    &:hover { opacity: 0.8; }
 
     @include mobile() {
       display: none;

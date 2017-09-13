@@ -1,3 +1,5 @@
+/*http://www.dynamicdrive.com/dynamicindex2/crawler/index.htm*/
+
 /* Text and/or Image Crawler Script v1.53 (c)2009-2012 John Davenport Scheuer
    as first seen in http://www.dynamicdrive.com/forums/
    username: jscheuer1 - This Notice Must Remain for Legal Use
@@ -40,16 +42,22 @@ function marqueeInit(config){
 
  marqueeInit.ar = [];
 
- // document.write('<style type="text/css">.marquee{white-space:nowrap;overflow:hidden;visibility:hidden;}#marq_kill_marg_bord{border:none!important;margin:0!important;}<\/style>');
- var c = 0, tTRE = [/^\s*$/, /^\s*/, /\s*$/, /[^\/]+$/],
- req1 = {'position': 'relative', 'overflow': 'hidden'}, defaultconfig = {
-  style: { //default style object for marquee containers without configured style
-	'margin': '0 auto'
-  },
-  direction: 'left',
-  inc: 2, //default speed - pixel increment for each iteration of a marquee's movement
-  mouse: 'pause' //default mouseover behavior ('pause' 'cursor driven' or false)
- }, dash, ie = false, oldie = 0, ie5 = false, iever = 0;
+ document.write('<style type="text/css">.marquee{white-space:nowrap;overflow:hidden;visibility:hidden;}#marq_kill_marg_bord{border:none!important;margin:0!important;}<\/style>');
+ var c = 0, tTRE = [/^\s*$/, /^\s*/, /\s*$/, /[^\/]+$/]
+   , req1 = {'position': 'relative', 'overflow': 'hidden'}
+   , defaultconfig = {
+      style: { //default style object for marquee containers without configured style
+	      'margin': '0 auto'
+      }
+      , direction: 'left'
+      , inc: 2 //default speed - pixel increment for each iteration of a marquee's movement
+      , mouse: 'pause' //default mouseover behavior ('pause' 'cursor driven' or false)
+     }
+   , dash
+   , ie = false
+   , oldie = 0
+   , ie5 = false
+   , iever = 0;
  
  /*@cc_on @*/
  /*@if(@_jscript_version >= 5)
@@ -178,6 +186,8 @@ function marqueeInit(config){
    this.c.onmouseout = function(){cObj.mq.stopped = false;};
   }
   this.m.style.position = 'absolute';
+  this.m.style.margin = '0';
+  this.m.style.padding = '0';
   this.m.style.left = '-10000000px';
   this.m.style.whiteSpace = 'nowrap';
   if(ie5) this.c.firstChild.appendChild((this.m = document.createElement('nobr')));
@@ -249,7 +259,7 @@ function marqueeInit(config){
     this.c.onmouseout = function(e){if(!cObj.contains(e)) cObj.slowdeath();};
    }
   }
-  this.w = this.m[0].offsetWidth;
+  this.w = this.m[0].offsetWidth - 3;
   this.m[0].style.left = this.mq.persist && this.cookie.get(this.mq.uniqueid)? this.cookie.get(this.mq.uniqueid).split(':')[0] : 0;
   this.c.id = 'marq_kill_marg_bord';
   this.m[0].style.top = this.m[1].style.top = Math.floor((this.c.offsetHeight - this.m[0].offsetHeight) / 2 - oldie) + 'px';
@@ -319,7 +329,7 @@ function marqueeInit(config){
  Marq.prototype.directspeed = function(e){
   e = e || window.event;
   if(this.timer) clearTimeout(this.timer);
-  var c = this.c.parentNode.parentNode //this.c
+  var c = (this.mq.maxwindows ? this.c.parentNode.parentNode : this.c)
     , w = c.offsetWidth
     , l = c.offsetLeft
     , mp = (typeof e.pageX === 'number'? e.pageX : e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft) - l
