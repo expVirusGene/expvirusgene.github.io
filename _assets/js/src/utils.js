@@ -12,6 +12,7 @@ NexT.utils = NexT.$u = {
       .each(function () {
         var $image = $(this);
         var imageTitle = $image.attr('title');
+        // var imageLinkTo = $image.attr('data-linkTo');
         var $imageWrapLink = $image.parent('a');
 
         if ($imageWrapLink.size() < 1) {
@@ -27,6 +28,10 @@ NexT.utils = NexT.$u = {
           //make sure img title tag will show correctly in fancybox
           $imageWrapLink.attr('title', imageTitle);
         }
+        
+        // if (imageLinkTo) {
+        //   $imageWrapLink.append('<p class="image-caption"><a href="' + imageLinkTo + '" target="_blank">[ Link To ]</a></p>');
+        // }
       });
 
     $('.fancybox').fancybox({

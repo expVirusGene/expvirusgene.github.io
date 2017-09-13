@@ -152,7 +152,7 @@ menu:
   tags: /tags/
   # sitemap: /sitemap.xml
   # commonweal: /404.html
-  # gallery: /gallery/
+  gallery: /gallery/
 
 # Enable/Disable menu icons.
 # Icon Mapping:
@@ -731,6 +731,9 @@ vendors:
   
   # Internal version: 0.0.1
   liquid:
+  
+  # Internal version: 1.5.0
+  crawler:
 
 
 # Assets
@@ -740,6 +743,13 @@ images: _assets/images
 
 # Theme version
 version: 5.1.1
+
+# OAuth
+oauth:
+  instagram: 
+    enable: true
+    access_token: 2434938882.fc337e6.38410558a5da4d8193af7cf15422da07
+    media_max_count: 20
 
 # Code Highlighter
 code_highlighter_style:
