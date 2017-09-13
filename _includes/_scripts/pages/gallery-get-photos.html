@@ -92,6 +92,7 @@
                 });
                 
                 $("#gallery_contents_crawler").html(__htmlOutput__);
+                CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
                 
                 marqueeInit({
                     uniqueid: 'gallery_contents_crawler',
@@ -107,8 +108,6 @@
                     random: false,
                     maxwindows: true /*default: false*/
                 });
-                
-                CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
                 
                 /*MAX_ID = __tempMaxId__.replace(/\"|\'/g, "");*/
             },

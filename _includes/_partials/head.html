@@ -52,7 +52,7 @@
 
 
 {% if site.fancybox %}
-  {% assign fancybox_css_uri = site.vendors._internal | append: '/fancybox/source/jquery.fancybox.css?v=2.1.5' | relative_url %}
+  {% assign fancybox_css_uri = site.vendors._internal | append: '/fancybox/jquery.fancybox.min.css?v=3.0.0' | relative_url %}
   {% if site.vendors.fancybox_css %}
     {% assign fancybox_css_uri = site.vendors.fancybox_css %}
   {% endif %}

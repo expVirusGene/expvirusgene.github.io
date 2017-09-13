@@ -15,7 +15,7 @@
 {% assign js_vendors = js_vendors | append: ', ' | append: 'velocity_ui: velocity/velocity.ui.min.js?v=1.2.1' %}
 
 {% if site.fancybox %}
-  {% assign js_vendors = js_vendors | append: ', ' | append: 'fancybox: fancybox/source/jquery.fancybox.pack.js?v=2.1.5' %}
+  {% assign js_vendors = js_vendors | append: ', ' | append: 'fancybox: fancybox/jquery.fancybox.min.js?v=3.0.0' %}
 {% endif %}
 {% if site.canvas_nest %}
   {% assign js_vendors = js_vendors | append: ', ' | append: 'canvas_nest: canvas-nest/canvas-nest.min.js' %}

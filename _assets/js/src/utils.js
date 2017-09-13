@@ -17,30 +17,29 @@ NexT.utils = NexT.$u = {
 
         if ($imageWrapLink.size() < 1) {
 	        var imageLink = ($image.attr('data-original')) ? this.getAttribute('data-original') : this.getAttribute('src');
-          $imageWrapLink = $image.wrap('<a href="' + imageLink + '"></a>').parent('a');
+          $imageWrapLink = $image.wrap('<a href="' + imageLink + '" target="_blank"></a>').parent('a');
           $imageWrapLink.addClass('fancybox fancybox.image');
           $imageWrapLink.attr('rel', 'group');
+          $imageWrapLink.attr('data-fancybox', 'images');
         }
 
-        if (imageTitle) {
+        if (imageTitle && $image.siblings('.image-title').size() < 1) {
           $imageWrapLink.append('<p class="image-caption image-title">' + imageTitle + '</p>');
 
           //make sure img title tag will show correctly in fancybox
           $imageWrapLink.attr('title', imageTitle);
         }
         
-        if (imageLinkTo) {
+        if (imageLinkTo && $imageWrapLink.siblings('.image-linkTo').size() < 1) {
           //$imageWrapLink.append('<p class="image-caption image-linkTo" onclick="javascript:window.open(\'' + imageLinkTo + '\', \'_blank\');">Comments</p>');
           $imageWrapLink.parent('div').append('<button type="button" class="image-caption image-linkTo btn btn-secondary" onclick="javascript:window.open(\'' + imageLinkTo + '\', \'_blank\');">Comments</button>');
         }
       });
 
-    $('.fancybox').fancybox({
-      helpers: {
-        overlay: {
-          locked: false
-        }
-      }
+    $().fancybox({
+      selector : '[data-fancybox="images"]',
+      protect: true,
+      loop: true
     });
   },
 
@@ -254,5 +253,13 @@ NexT.utils = NexT.$u = {
      document.execCommand("copy");
      $temp.remove();
     return __text__
+  },
+  
+  isEmpty: function(value) { 
+    if ( value == "" || value == "null" || value == null || value == undefined || ( value != null && typeof value == "object" && !Object.keys(value).length ) ) { 
+      return true;
+    } else { 
+      return false;
+    } 
   }
 };
