@@ -32,8 +32,8 @@ NexT.utils = NexT.$u = {
         }
         
         if (imageLinkTo && $imageWrapLink.siblings('.image-linkTo').size() < 1) {
-          //$imageWrapLink.append('<p class="image-caption image-linkTo" onclick="javascript:window.open(\'' + imageLinkTo + '\', \'_blank\');">Comments</p>');
-          $imageWrapLink.parent('div').append('<button type="button" class="image-caption image-linkTo btn btn-secondary" onclick="javascript:window.open(\'' + imageLinkTo + '\', \'_blank\');">Comments</button>');
+          var imageLinkToTitle = $image.attr('data-linkToTitle');
+          $imageWrapLink.parent('div').append('<button type="button" class="image-caption image-linkTo btn btn-secondary" onclick="javascript:window.open(\'' + imageLinkTo + '\', \'_blank\');">' + (imageLinkToTitle ? imageLinkToTitle : "Link To") + '</button>');
         }
       });
 
