@@ -7,15 +7,15 @@
 </script>
 
 {% assign js_vendors = '' %}
-{% assign js_vendors = js_vendors | append: ', ' | append: 'jquery: jquery/index.js?v=3.2.1' %}
-{% assign js_vendors = js_vendors | append: ', ' | append: 'jquery_migrate: jquery_migrate/index.js?v=3.0.0' %}
+{% assign js_vendors = js_vendors | append: ', ' | append: 'jquery: jquery/3.2.1/jquery.min.js?v=3.2.1' %}
+{% assign js_vendors = js_vendors | append: ', ' | append: 'jquery_migrate: jquery_migrate/jquery_migrate.min.js?v=3.0.0' %}
 {% assign js_vendors = js_vendors | append: ', ' | append: 'fastclick: fastclick/lib/fastclick.min.js?v=1.0.6' %}
-{% assign js_vendors = js_vendors | append: ', ' | append: 'lazyload: jquery_lazyload/jquery.lazyload.js?v=1.9.7' %}
+{% assign js_vendors = js_vendors | append: ', ' | append: 'lazyload: jquery_lazyload/jquery.lazyload.min.js?v=1.9.7' %}
 {% assign js_vendors = js_vendors | append: ', ' | append: 'velocity: velocity/velocity.min.js?v=1.2.1' %}
 {% assign js_vendors = js_vendors | append: ', ' | append: 'velocity_ui: velocity/velocity.ui.min.js?v=1.2.1' %}
 
 {% if site.fancybox %}
-  {% assign js_vendors = js_vendors | append: ', ' | append: 'fancybox: fancybox/jquery.fancybox.min.js?v=3.0.0' %}
+  {% assign js_vendors = js_vendors | append: ', ' | append: 'fancybox: fancybox/3.1.2/jquery.fancybox.min.js?v=3.1.24' %}
 {% endif %}
 {% if site.canvas_nest %}
   {% assign js_vendors = js_vendors | append: ', ' | append: 'canvas_nest: canvas-nest/canvas-nest.min.js' %}
@@ -37,10 +37,10 @@
 {% endif %}
 
 {% if site.canvas_ribbon and site.scheme == 'Pisces'%}
-  {% assign js_vendors = js_vendors | append: ', ' | append: 'canvas_ribbon: canvas-ribbon/canvas-ribbon.js' %}
+  {% assign js_vendors = js_vendors | append: ', ' | append: 'canvas_ribbon: canvas-ribbon/canvas-ribbon.min.js' %}
 {% endif %}
 
-{% assign js_vendors = js_vendors | append: ', ' | append: 'liquid: liquid/index.js?v=0.0.1' %}
+{% assign js_vendors = js_vendors | append: ', ' | append: 'liquid: liquid/liquid.min.js?v=0.0.1' %}
 
 {% assign js_vendors = js_vendors | split: ", " | uniq %}
 {% for js_vendor in js_vendors %}

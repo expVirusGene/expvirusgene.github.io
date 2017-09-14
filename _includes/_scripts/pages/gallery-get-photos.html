@@ -1,5 +1,5 @@
 {% if site.oauth.instagram.enable %}
-{% assign internal_script = site.vendors._internal | append: '/' | append: 'crawler/index.js?v=1.5.0' | relative_url %}
+{% assign internal_script = site.vendors._internal | append: '/' | append: 'crawler/crawler.min.js?v=1.5.0' | relative_url %}
 <script type="text/javascript" src="{{ site.vendors['crawler'] | default: internal_script }}"></script>
 <script type="text/javascript">
     "use strict";
@@ -54,7 +54,7 @@
             type: "GET",
             url: 'https://api.instagram.com/v1/users/self/media/recent/' ,
             dataType: 'jsonp',
-            data: { access_token : token }, /*max_id : MAX_ID },*/
+            data: { access_token : token, count: LIMIT_COUNT }, /*max_id : MAX_ID },*/
             crossDomain: true,
             success: function(data, textStatus, jqXHR) {
                 /*TODO: need re-factoring*/
@@ -92,7 +92,6 @@
                 });
                 
                 $("#gallery_contents_crawler").html(__htmlOutput__);
-                CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
                 
                 marqueeInit({
                     uniqueid: 'gallery_contents_crawler',
@@ -108,6 +107,14 @@
                     random: false,
                     maxwindows: true /*default: false*/
                 });
+                
+                /*
+                $("#gallery_contents_crawler").marquee({
+                    duplicated: true
+                });
+                */
+                
+                CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
                 
                 /*MAX_ID = __tempMaxId__.replace(/\"|\'/g, "");*/
             },

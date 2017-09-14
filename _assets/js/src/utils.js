@@ -7,6 +7,7 @@ NexT.utils = NexT.$u = {
   wrapImageWithFancyBox: function () {
     $('.content img')
       .not('[hidden]')
+      .not('[data-noFancyBox]')
       .not('.group-picture img, .post-gallery img')
       .not('.emoji')
       .each(function () {
@@ -256,7 +257,7 @@ NexT.utils = NexT.$u = {
   },
   
   isEmpty: function(value) { 
-    if ( value == "" || value == "null" || value == null || value == undefined || ( value != null && typeof value == "object" && !Object.keys(value).length ) ) { 
+    if ( value == "" || value == "null" || value == "undefined" || value == null || value == undefined || ( value != null && typeof value == "object" && !Object.keys(value).length ) ) { 
       return true;
     } else { 
       return false;

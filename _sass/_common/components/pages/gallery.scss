@@ -55,7 +55,10 @@
         }
         
         .image-title {
+            display: block;
+            white-space: nowrap;
             overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .image-linkTo {

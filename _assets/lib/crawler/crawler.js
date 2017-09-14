@@ -262,7 +262,7 @@ function marqueeInit(config){
   this.w = this.m[0].offsetWidth - 3;
   this.m[0].style.left = this.mq.persist && this.cookie.get(this.mq.uniqueid)? this.cookie.get(this.mq.uniqueid).split(':')[0] : 0;
   this.c.id = 'marq_kill_marg_bord';
-  this.m[0].style.top = this.m[1].style.top = Math.floor((this.c.offsetHeight - this.m[0].offsetHeight) / 2 - oldie) + 'px';
+  /*this.m[0].style.top = this.m[1].style.top = Math.floor((this.c.offsetHeight - this.m[0].offsetHeight) / 2 - oldie) + 'px';*/
   this.c.id = '';
   this.c.removeAttribute('id', 0);
   this.m[1].style.left = this.mq.persist && this.cookie.get(this.mq.uniqueid)? this.cookie.get(this.mq.uniqueid).split(':')[1] : this.w + 'px';

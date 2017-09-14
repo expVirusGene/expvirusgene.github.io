@@ -660,8 +660,9 @@ vendors:
   # Internal version: 3.0.0
   jquery_migrate:
 
-  # Internal version: 2.1.5
+  # Internal version: 2.1.5 > 3.1.24
   # See: http://fancyapps.com/fancybox/
+  # update: https://github.com/fancyapps/fancybox
   fancybox:
   fancybox_css:
 
@@ -680,6 +681,12 @@ vendors:
   # Internal version: 1.2.1
   # See: http://VelocityJS.org
   velocity_ui:
+  
+  # Internal version: 1.4.1
+  jquery_marquee:
+  
+  # Internal version: 1.5.0
+  crawler:
 
   # Internal version: 0.7.9
   # See: https://faisalman.github.io/ua-parser-js/
@@ -731,9 +738,6 @@ vendors:
   
   # Internal version: 0.0.1
   liquid:
-  
-  # Internal version: 1.5.0
-  crawler:
 
 
 # Assets
