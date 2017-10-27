@@ -148,6 +148,7 @@ menu:
   home: /
   # about: /about/
   archives: /archives/
+  scrap: /scrap/
   categories: /categories/
   tags: /tags/
   # sitemap: /sitemap.xml
@@ -165,6 +166,7 @@ menu_icons:
   home: home
   about: user
   archives: archive
+  scrap: retweet
   categories: book
   schedule: calendar
   tags: tags

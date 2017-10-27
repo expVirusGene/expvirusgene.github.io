@@ -21,11 +21,14 @@
       {% if page.layout == 'category' %}
         {% assign collections = site.categories %}
         {% assign redirect = '/categories/' | relative_url %}
-      {% endif %}
-
-      {% if page.layout == 'tag' %}
+    
+      {% elsif page.layout == 'tag' %}
         {% assign collections = site.tags %}
         {% assign redirect = '/tags/' | relative_url %}
+      
+      {% elsif page.layout == '' %}
+        {% assign collections = site.categories %}
+        {% assign redirect = '/scrap/' | relative_url %}
       {% endif %}
 
       {% if collections %}
@@ -52,7 +55,8 @@
           return;
         }
 
-        $('.collection-title')[0].childNodes[1].childNodes[0].nodeValue = collection;
+        /*$('.collection-title')[0].childNodes[1].childNodes[0].nodeValue = collection;*/
+        $('.collection-title')[0].childNodes[0].childNodes[0].nodeValue = collection;
         document.title = "{{ __.title[page.layout] }}: " + collection + " | {{ site.title }}";
 
         var sizes = maps[collection];

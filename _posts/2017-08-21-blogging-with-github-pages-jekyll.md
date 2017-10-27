@@ -8,6 +8,8 @@ tags:
 - gitHub pages
 photos:
 - /_assets/images/post/2017/0821_blogging_01.png
+image:
+- /_assets/images/post/2017/0821_blogging_01.png
 ---
 
 ---

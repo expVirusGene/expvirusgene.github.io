@@ -10,6 +10,8 @@ tags:
 - jekyll
 photos:
 - /_assets/images/post/2017/0907_js-travis-ci-github-pages.png
+image:
+- /_assets/images/post/2017/0907_js-travis-ci-github-pages.png
 ---
 
 ---

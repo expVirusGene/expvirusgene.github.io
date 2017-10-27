@@ -27,3 +27,6 @@ Thumbs.db
 *.bak
 *.lock
 !.gitkeep
+
+# c9
+.c9/

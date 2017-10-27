@@ -5,14 +5,14 @@
     {% assign postSize = site.posts.size %}
     {% for post in site.posts %}
       {% assign postType = post.type | downcase %}
-      {% if postType == 'scrap' %}
+      {% if postType != 'scrap' %}
         {% assign postSize = postSize | minus: 1 %}
       {% endif %}
     {% endfor %}
     
     {% if postSize <= 0 %} {% assign cheers = 'oh' %}
     {% else %} {% assign cheers = 'ok' %}
-    {% endif %}    
+    {% endif %}
     {{ __.cheers[cheers] }}!
     
     {% if postSize <= 0 %}
@@ -29,7 +29,7 @@
 
   {% for post in site.posts %}
     {% assign postType = post.type | downcase %}
-    {% if postType != 'scrap' %}
+    {% if postType == 'scrap' %}
   
       {% if paginate > 0 %}
         {% assign page_num = forloop.index0 | divided_by: paginate | plus: 1 %}

@@ -10,6 +10,15 @@
     {% endif %}
     {% include _scripts/pages/pagination.html %}
   {% endcapture %}
+{% when 'scrap' %}
+  {% capture script_extra %}
+    {% if site.use_motion %}
+      <script type="text/javascript" id="motion.page.archive">
+        $('.archive-year').velocity('transition.slideLeftIn');
+      </script>
+    {% endif %}
+    {% include _scripts/pages/pagination.html %}
+  {% endcapture %}
 {% when 'category' %}
   {% capture script_extra %}
     {% include _scripts/pages/pagination.html %}

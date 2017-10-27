@@ -1,24 +1,25 @@
 title:
   archives: 아카이브
   archive: 아카이브
+  scrap: 스크랩
   categories: 카테고리
   category: 카테고리
   tags: 태그
   tag: 태그
   about: About
-  gallery: Gallery
+  gallery: 갤러리
 
 author: 작성자
 
 menu:
   home: 홈
   archives: 아카이브
+  scrap: 스크랩
   categories: 카테고리
   tags: 태그
   about: About
   search: 검색
   gallery: 갤러리
-  
 
 sidebar:
   overview: Author
