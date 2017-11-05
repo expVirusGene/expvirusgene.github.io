@@ -754,7 +754,7 @@ version: 5.1.1
 oauth:
   instagram: 
     enable: true
-    access_token: 2434938882.fc337e6.38410558a5da4d8193af7cf15422da07
+    access_token: 2434938882.fc337e6.bcc1efe9b0d444a8a841d0854c699cc9
     media_max_count: 20
 
 # Code Highlighter

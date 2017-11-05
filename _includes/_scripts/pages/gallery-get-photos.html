@@ -20,23 +20,27 @@
             data: { access_token : token },
             crossDomain: true,
             success: function(data, textStatus, jqXHR) {
-                $("#user_profile_picture_img").attr("src", data.data.profile_picture);
-                $("#user_profile_picture_img").load(function() {
-                    $("#user_profile_picture_div").css({
-                        "width": this.width + "px",
-                        "height": this.height + "px",
-                        "background-image": "url(" + this.src + ")"
+                if (data.meta.code == 200) {
+                    $("#user_profile_picture_img").attr("src", data.data.profile_picture);
+                    $("#user_profile_picture_img").load(function() {
+                        $("#user_profile_picture_div").css({
+                            "width": this.width + "px",
+                            "height": this.height + "px",
+                            "background-image": "url(" + this.src + ")"
+                        });
+                        this.remove();
                     });
-                    this.remove();
-                });
-                
-                $("#user_name").html(data.data.full_name + " ( @" + data.data.username + " )");
-                $("#user_bio").html(data.data.bio);
-                $("#user_counts").html(
-                    "<h3>" + data.data.counts.media + "</h3>&nbsp;posts &nbsp;" +
-                    "<h3>" + data.data.counts.followed_by + "</h3>&nbsp;following &nbsp;" +
-                    "<h3>" + data.data.counts.follows + "</h3>&nbsp;followers"
-                );
+                    
+                    $("#user_name").html(data.data.full_name + " ( @" + data.data.username + " )");
+                    $("#user_bio").html(data.data.bio);
+                    $("#user_counts").html(
+                        "<h3>" + data.data.counts.media + "</h3>&nbsp;posts &nbsp;" +
+                        "<h3>" + data.data.counts.followed_by + "</h3>&nbsp;following &nbsp;" +
+                        "<h3>" + data.data.counts.follows + "</h3>&nbsp;followers"
+                    );
+                } else {
+                    console.error(data);
+                }
             },
             error: function(x,y,z) {
                 console.log("***ERROR in simpleJekyllSearch.js***");
@@ -133,6 +137,7 @@
     (function init(token) {
         setProfile(token);
         setPhotoContents(token);
+        
     }('{{ site.oauth.instagram.access_token }}'));
 </script>
 {% endif %}
